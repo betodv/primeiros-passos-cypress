@@ -16,8 +16,15 @@ const selectorsList = {
   lastNameField: "[name='lastName']",
   genericField: ".oxd-input--active",
   dateField: "[placeholder='yyyy-dd-mm']",
+  genericCombobox: ".oxd-select-text--arrow",
+  firstItemCombobox: ".oxd-select-dropdown > :nth-child(4)",
+  secondItemCombobox: ".oxd-select-dropdown > :nth-child(2)",
+  dateBirthday: "[placeholder='yyyy-dd-mm']",
+  genderField: ".oxd-radio-wrapper",
   dateCloseButton: ".--close",
-  submitButton: "[type='submit']"
+  submitButton: "[type='submit']",
+
+  
 }
 
   it.only('User info Update - Success', () => {
@@ -36,9 +43,24 @@ const selectorsList = {
     cy.get(selectorsList.genericField).eq(5).clear().type('DriversLicenseTest')
     cy.get(selectorsList.dateField).eq(0).clear().type('2025-10-03')
     cy.get(selectorsList.dateCloseButton).click()
-    cy.get(selectorsList.submitButton).eq(0).click()
+    cy.get(selectorsList.genericCombobox).eq(0).click({ force: true })
+    cy.get(selectorsList.firstItemCombobox).click()
+    cy.get(selectorsList.genericCombobox).eq(1).click()
+    cy.get(selectorsList.secondItemCombobox).click({ force: true })
+    cy.get(selectorsList.dateBirthday).eq(1).clear().type('2000-15-06')
+    cy.get(selectorsList.dateCloseButton).click()
+    cy.get(selectorsList.genderField).eq(0).click()
+    cy.get(selectorsList.submitButton).eq(0).click({ force: true })
+    //cy.get('body').should('contain', 'Successfully Updated')
+    //cy.get('.oxd-toast-close')
+
+    //cy.get(selectorsList.genericCombobox).eq(0).click({ force: true })
+    //cy.get(selectorsList.firstItemCombobox).click()
+    //cy.get(selectorsList.genericCombobox).eq(1).click()
+    //cy.get(selectorsList.secondItemCombobox).click({ force: true })
     cy.get('body').should('contain', 'Successfully Updated')
     cy.get('.oxd-toast-close')
+ 
   })
 
   it('Login - Fail', () => {
