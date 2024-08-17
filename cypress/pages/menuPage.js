@@ -13,9 +13,7 @@ class MenuPage {
         cy.get(this.selectorsList().myInfoButton).click()
     }
 
-    //accessRecruitment() {
-    //    cy.get(this.selectorsList().recruitmentButton).click()
-    //}
+    
 }
 
 export default MenuPage
