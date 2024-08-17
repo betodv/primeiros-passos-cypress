@@ -6,7 +6,7 @@ import DashboardPage from '../pages/dashboardPage'
 import MenuPage from '../pages/menuPage'
 import MyInfoPage from '../pages/myinfoPage'
 
-const Chance = require('chance');
+const Chance = require('chance'); //site chance.com - adicionar valores random (nome, sobrenome, valores ID, etc - tudo que tem "chance.xxxxxx") tem que instalar, seguir passos site
 
 const chance = new Chance();
 const loginPage = new LoginPage()
